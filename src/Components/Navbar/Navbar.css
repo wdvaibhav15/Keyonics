@@ -1,0 +1,82 @@
+.navbar {
+    width: 100%;
+    height: 60px;
+    background-color: #ffffff;
+    position: fixed;
+    top: 40px;
+    left: 0;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 50px;
+    box-sizing: border-box;
+}
+
+.logo {
+    height: 50px;
+    cursor: pointer;
+}
+
+.navbar ul {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    display: inline-block;
+    list-style: none;
+    margin: 5px 20px;
+    font-size: 18px;
+    color: #4b0082;
+    cursor: pointer;
+}
+
+.navbar ul li:hover {
+    color: blue;
+}
+
+.enroll-btn {
+    background-color: #f91414;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.enroll-btn:hover {
+    opacity: 0.9;
+}
+.navbar ul li a,
+.navbar ul li span {
+    position: relative;
+    text-decoration: none;
+    color: #4b0082;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover,
+.navbar ul li span:hover {
+    color: #f91414;
+}
+
+.active-link {
+    color: #f91414 !important;
+}
+
+.active-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    height: 3px;
+    background-color: #f91414;
+    border-radius: 2px;
+}

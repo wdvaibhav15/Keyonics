@@ -1,0 +1,26 @@
+.header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    width: 100vw;
+    height: 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: #09044b;
+    color: #fff;
+}
+.government_registration, .keyonics_certified, .practical_training{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    
+}
+.image{
+    width: 1.5rem;
+    height: 1.5rem;
+}
