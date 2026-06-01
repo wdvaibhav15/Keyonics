@@ -1,198 +1,72 @@
-// // import React from 'react'
-// // import './Navbar.css'
-// // import { Link } from 'react-router-dom'
-// // import logo from '../../assets/keyonics_logo.png'
-
-// // const Navbar = () => {
-// //   return (
-// //     <nav className='navbar'>
-// //             <img className='logo' src={logo} alt="logo" />
-        
-// //         <ul>
-// //             <li>
-// //                 <Link to="Home/">Home</Link>
-// //             </li>
-// //             <li>
-// //                 <Link to="/PopularCourses">Courses</Link>
-// //             </li>
-// //             <li>
-// //                 <Link to="/Footer">About</Link>
-// //             </li>
-// //             <li>
-// //                 <Link to="/certifications">Certifications</Link>
-// //             </li>
-// //             <li>
-// //                 <Link to="/Testimonials">Student Reviews</Link>
-// //             </li>
-// //             <li>
-// //                 <Link to="/contact">Contact Us</Link>
-// //             </li>
-// //         </ul>
-// //         <button className='enroll-btn'>Book free councelling</button>
-      
-// //     </nav>
-// //   )
-// // }
-
-// // export default Navbar
-// import React from 'react';
-// import './Navbar.css';
-// import { Link } from 'react-scroll';
-// import logo from '../../assets/keyonics_logo.png';
-
-// const Navbar = () => {
-//   return (
-//     <nav className='navbar'>
-//       <Link to="home" smooth={true} duration={500} offset={-120}>
-//          <img className='logo' src={logo} alt="logo" />
-//      </Link>
-
-//       <ul>
-//         <li>
-//           <Link to="home" smooth={true} duration={500} offset={-120}>
-//             Home
-//           </Link>
-//         </li>
-
-//         <li>
-//           <Link to="courses" smooth={true} duration={500} offset={-120}>
-//             Courses
-//           </Link>
-//         </li>
-
-//         <li>
-//           <Link to="about" smooth={true} duration={500} offset={-120}>
-//             About
-//           </Link>
-//         </li>
-
-//         <li>
-//           <Link to="certifications" smooth={true} duration={500} offset={-120}>
-//             Certifications
-//           </Link>
-//         </li>
-
-//         <li>
-//           <Link to="reviews" smooth={true} duration={500} offset={-120}>
-//             Student Reviews
-//           </Link>
-//         </li>
-
-//         <li>
-//           <Link to="contact" smooth={true} duration={500} offset={-120}>
-//             Contact Us
-//           </Link>
-//         </li>
-//       </ul>
-
-//       <button className='enroll-btn'>Book Free Counselling</button>
-//     </nav>
-//   );
-// };
-
-// export default Navbar;
 import React, { useState } from 'react';
 import './Navbar.css';
 import { Link } from 'react-scroll';
 import logo from '../../assets/keyonics_logo.png';
+import menu_icon from '../../assets/menu_icon.png';
 
 const Navbar = () => {
   const [active, setActive] = useState('home');
+  const [mobileMenu, setMobileMenu] = useState(false);
+
+  const handleClick = (section) => {
+    setActive(section);
+    setMobileMenu(false);
+  };
+
+  const navLinks = [
+    { id: 'home',           label: 'Home' },
+    { id: 'courses',        label: 'Courses' },
+    { id: 'about',          label: 'About' },
+    { id: 'certifications', label: 'Certifications' },
+    { id: 'reviews',        label: 'Student Reviews' },
+    { id: 'contact',        label: 'Contact Us' },
+  ];
 
   return (
-    <nav className='navbar'>
-      <Link
-        to="home"
-        smooth={true}
-        duration={500}
-        offset={-120}
-        onClick={() => setActive('home')}
-      >
-        <img className='logo' src={logo} alt="logo" />
-      </Link>
+    <>
+      {/* overlay — closes menu when clicked outside */}
+      {mobileMenu && (
+        <div className="menu-overlay" onClick={() => setMobileMenu(false)} />
+      )}
 
-      <ul>
-        <li>
-          <Link
-            to="home"
-            smooth={true}
-            duration={500}
-            offset={-120}
-            className={active === 'home' ? 'active-link' : ''}
-            onClick={() => setActive('home')}
-          >
-            Home
-          </Link>
-        </li>
+      <nav className="navbar">
 
-        <li>
-          <Link
-            to="courses"
-            smooth={true}
-            duration={500}
-            offset={-120}
-            className={active === 'courses' ? 'active-link' : ''}
-            onClick={() => setActive('courses')}
-          >
-            Courses
-          </Link>
-        </li>
+        {/* Logo — always on left */}
+        <Link to="home" smooth duration={500} offset={-100} onClick={() => handleClick('home')}>
+          <img src={logo} alt="logo" className="logo" />
+        </Link>
 
-        <li>
-          <Link
-            to="about"
-            smooth={true}
-            duration={500}
-            offset={-120}
-            className={active === 'about' ? 'active-link' : ''}
-            onClick={() => setActive('about')}
-          >
-            About
-          </Link>
-        </li>
+        {/* Nav Links */}
+        <ul className={mobileMenu ? 'nav-links open' : 'nav-links'}>
+          {navLinks.map((link) => (
+            <li key={link.id}>
+              <Link
+                to={link.id}
+                smooth
+                duration={500}
+                offset={-100}
+                className={active === link.id ? 'active-link' : ''}
+                onClick={() => handleClick(link.id)}
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
 
-        <li>
-          <Link
-            to="certifications"
-            smooth={true}
-            duration={500}
-            offset={-120}
-            className={active === 'certifications' ? 'active-link' : ''}
-            onClick={() => setActive('certifications')}
-          >
-            Certifications
-          </Link>
-        </li>
+        {/* CTA Button — hidden on mobile */}
+        <button className="enroll-btn">Book Free Counselling</button>
 
-        <li>
-          <Link
-            to="reviews"
-            smooth={true}
-            duration={500}
-            offset={-120}
-            className={active === 'reviews' ? 'active-link' : ''}
-            onClick={() => setActive('reviews')}
-          >
-            Student Reviews
-          </Link>
-        </li>
+        {/* Hamburger Icon — visible only on mobile/tablet */}
+        <img
+          src={menu_icon}
+          alt="menu"
+          className="menu_icon"
+          onClick={() => setMobileMenu(!mobileMenu)}
+        />
 
-        <li>
-          <Link
-            to="contact"
-            smooth={true}
-            duration={500}
-            offset={-120}
-            className={active === 'contact' ? 'active-link' : ''}
-            onClick={() => setActive('contact')}
-          >
-            Contact Us
-          </Link>
-        </li>
-      </ul>
-
-      <button className='enroll-btn'>Book Free Counselling</button>
-    </nav>
+      </nav>
+    </>
   );
 };
 

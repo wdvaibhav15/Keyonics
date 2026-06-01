@@ -1,26 +1,103 @@
-.header{
-    display: flex;
+/* ── HEADER STRIP ── */
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  min-height: 40px;        /* min-height instead of fixed height */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+  background-color: #09044b;
+  color: #fff;
+  box-sizing: border-box;
+  flex-wrap: nowrap;        /* keep all 3 items in one row */
+}
+
+.government_registration,
+.keyonics_certified,
+.practical_training {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;      /* prevent text from wrapping */
+}
+
+.image {
+  width: 1.4rem;
+  height: 1.4rem;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+/* ══════════════════════════════
+   TABLET — max 1024px
+══════════════════════════════ */
+@media (max-width: 1024px) {
+  .government_registration,
+  .keyonics_certified,
+  .practical_training {
+    font-size: 0.75rem;
+    gap: 6px;
+  }
+
+  .image {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}
+
+/* ══════════════════════════════
+   MOBILE — max 768px
+══════════════════════════════ */
+@media (max-width: 768px) {
+  .header {
+    padding: 0 10px;
+    min-height: 36px;
+    justify-content: space-between;
+  }
+
+  .government_registration,
+  .keyonics_certified,
+  .practical_training {
+    font-size: 0.65rem;
+    gap: 4px;
+  }
+
+  .image {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  /* hide long text on mobile — show icon only */
+  .practical_training p {
+    display: none;
+  }
+}
+
+/* ══════════════════════════════
+   SMALL MOBILE — max 480px
+══════════════════════════════ */
+@media (max-width: 480px) {
+  .header {
+    padding: 0 8px;
+  }
+
+  .government_registration p,
+  .keyonics_certified p {
+    display: none;        /* show only icons on very small screens */
+  }
+
+  .header {
     justify-content: space-around;
-    align-items: center;
-    padding: 1rem;
-    width: 100vw;
-    height: 40px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    background-color: #09044b;
-    color: #fff;
-}
-.government_registration, .keyonics_certified, .practical_training{
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.8rem;
-    font-weight: bold;
-    
-}
-.image{
-    width: 1.5rem;
-    height: 1.5rem;
+  }
+
+  .image {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
 }

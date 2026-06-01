@@ -10,6 +10,8 @@
   position: relative;
   overflow: hidden;
   gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* ── LEFT IMAGE ── */
@@ -146,4 +148,164 @@
   .btn1 { min-width: 100px; }
   .right { width: 100%; }
   .right-btn .btn { width: 100%; }
+}
+
+/* ── RESPONSIVE ── */
+
+/* Tablet */
+@media (max-width: 1024px) {
+
+  .bottom {
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .right-img {
+    margin-left: 20px;
+    width: 140px;
+    height: 170px;
+  }
+
+  .center-text h2 {
+    font-size: 1.1rem;
+  }
+
+  .center-text p {
+    font-size: 0.8rem;
+  }
+
+  .float-btn {
+    gap: 10px;
+  }
+
+  .btn1 {
+    min-width: 100px;
+    width: 100px;
+    height: 45px;
+    padding: 8px 10px;
+  }
+
+  .btn1 p {
+    font-size: 0.75rem;
+  }
+
+  .right-btn .btn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  .bottom {
+    flex-direction: column;
+    height: auto;
+    padding: 25px 20px;
+    text-align: center;
+    gap: 25px;
+  }
+
+  .right-img {
+    margin-left: 0;
+    width: 180px;
+    height: 180px;
+  }
+
+  .center {
+    width: 100%;
+    padding: 0;
+  }
+
+  .center-text h2 {
+    font-size: 1.4rem;
+    line-height: 1.4;
+  }
+
+  .center-text p {
+    font-size: 0.9rem;
+  }
+
+  .float-btn {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .btn1 {
+    width: 120px;
+    min-width: 120px;
+    height: 50px;
+    justify-content: center;
+  }
+
+  .right {
+    width: 100%;
+  }
+
+  .right-btn {
+    width: 100%;
+  }
+
+  .right-btn .btn {
+    width: 100%;
+    max-width: 350px;
+    padding: 14px;
+    font-size: 1rem;
+  }
+
+  .right > p {
+    font-size: 0.85rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+
+  .bottom {
+    padding: 20px 15px;
+    gap: 20px;
+  }
+
+  .right-img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .center-text h2 {
+    font-size: 1.15rem;
+  }
+
+  .center-text p {
+    font-size: 0.8rem;
+  }
+
+  .float-btn {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn1 {
+    width: 220px;
+    height: 50px;
+  }
+
+  .btn1 img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .btn1 p {
+    font-size: 0.8rem;
+  }
+
+  .right-btn .btn {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .right > p {
+    font-size: 0.75rem;
+  }
 }
