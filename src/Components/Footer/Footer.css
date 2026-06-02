@@ -137,10 +137,10 @@
 .social-icons .li { background: #0077b5; }
 
 .social-icons img {
-  width: 18px;
-  height: 18px;
+  width: 35px;
+  height: 35px;
   object-fit: contain;
-  filter: brightness(0) invert(1);
+  filter: none;
 }
 
 /* ── BOTTOM BAR ── */
