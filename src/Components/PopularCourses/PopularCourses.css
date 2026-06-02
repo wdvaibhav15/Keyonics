@@ -27,7 +27,7 @@
 /* ── GRID ── */
 .courses-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
 
@@ -43,6 +43,8 @@
   box-shadow: 0 2px 12px rgba(13, 31, 92, 0.06);
   transition: box-shadow 0.25s, transform 0.25s;
   cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .course-card:hover {
@@ -155,16 +157,129 @@
 }
 
 /* ── RESPONSIVE ── */
+
+/* Large Tablets */
 @media (max-width: 1024px) {
-  .popular-courses { padding: 60px 40px; }
+  .popular-courses {
+    padding: 50px 40px;
+  }
+
+  .courses-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .card-content h3 {
+    font-size: 1.2rem;
+  }
 }
 
-@media (max-width: 800px) {
-  .courses-grid { grid-template-columns: repeat(2, 1fr); }
-  .popular-courses { padding: 50px 24px; }
+/* Tablets */
+@media (max-width: 768px) {
+  .popular-courses {
+    padding: 40px 20px;
+  }
+
+  .courses-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .course-card {
+    padding: 18px;
+    gap: 14px;
+  }
+
+  .card-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .card-icon img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .card-content h3 {
+    font-size: 1rem;
+  }
+
+  .card-content p {
+    font-size: 0.85rem;
+  }
+
+  .duration-badge {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+  }
 }
 
-@media (max-width: 500px) {
-  .courses-grid { grid-template-columns: 1fr; }
-  .section-heading h2 { font-size: 1.5rem; }
+/* Mobile */
+@media (max-width: 576px) {
+  .popular-courses {
+    padding: 30px 15px;
+  }
+
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .course-card {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .card-icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .card-content {
+    width: 100%;
+  }
+
+  .card-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .card-content p {
+    font-size: 0.9rem;
+  }
+
+  .card-footer {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .duration-badge {
+    font-size: 0.85rem;
+  }
+
+  .view-all-btn {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 380px) {
+  .card-content h3 {
+    font-size: 1rem;
+  }
+
+  .card-content p {
+    font-size: 0.8rem;
+  }
+
+  .duration-badge {
+    font-size: 0.75rem;
+  }
+
+  .arrow-btn {
+    width: 32px;
+    height: 32px;
+  }
 }

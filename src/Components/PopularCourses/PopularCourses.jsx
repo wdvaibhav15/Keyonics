@@ -7,7 +7,7 @@ import tallyIcon   from '../../assets/tally.png';
 import pythonIcon  from '../../assets/python.png';
 import webdevIcon  from '../../assets/webdev.png';
 import photoshopIcon from '../../assets/dtp.png';
-import dtpIcon     from '../../assets/dtp.png';
+import dtpIcon     from '../../assets/typing.png';
 
 const courses = [
   {
